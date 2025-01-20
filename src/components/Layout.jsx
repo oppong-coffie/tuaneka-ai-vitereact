@@ -10,6 +10,7 @@ import Mainpage2 from './Mainpage2.jsx'
 import Invoice2 from './Invoice2.jsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ChatWithBotpress from './ChatWithBotpress.jsx'
+import Chatnow from './Chatnow.jsx'
 
 
 
@@ -80,7 +81,7 @@ const Layout = () => {
           </div>
           <div className="flex items-center md:space-x-7">
             <img className="w-5" src={shoppingcart}/>
-            <img className="w-24 md:w-40 md:h-7" src={frame66} />
+            <img className="w-24 md:w-32 md:h-7" src={frame66} />
             <Select
               options={options}
               components={{ SingleValue: customSingleValue, Option: customOption }}
@@ -110,7 +111,8 @@ const Layout = () => {
         <Routes>
           <Route path="/" element={<Mainpage2 />} />
           <Route path="/invoice2" element={<Invoice2 />} /> {/* Ensure InvoicePage component exists */}
-          <Route path="/bot" element={<ChatWithBotpress />} /> Ensure InvoicePage component exists
+          <Route path="/bot" element={<ChatWithBotpress />} /> 
+          <Route path="/chat" element={<Chatnow />} /> 
         </Routes>
 
       </div>
