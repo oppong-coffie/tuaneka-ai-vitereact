@@ -6,7 +6,7 @@ import logo from '../icons/logo.png'
 import Select from 'react-select';
 import { ArrowLeft, ArrowDown, ChevronDown } from 'lucide-react';
 import CountryFlag from 'react-country-flag';
-import Mainpage from './Mainpage.jsx'
+import Mainpage2 from './Mainpage2.jsx'
 import Invoice2 from './Invoice2.jsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ChatWithBotpress from './ChatWithBotpress.jsx'
@@ -72,8 +72,8 @@ const customStyles = {
 const Layout = () => {
   return (
     <>
-      <div className="md:ml-6 md:mr-6">
-        <header className="flex justify-between items-center mb-5 md:mb-8 md:ml-9 md:mr-40">
+      <div className="">
+        <header className="flex justify-between items-center mb-5 md:mb-0 md:ml-5 md:mr-5">
           <div className="flex items-center gap-2 md:gap-6">
             <img className="w-2/4" src={logo}/>
             <img className="w-4 md:w-5" src={frame272}/>
@@ -89,6 +89,12 @@ const Layout = () => {
               isSearchable={false}  
               styles={customStyles}
             />
+               <div className='flex justify-center items-center'>
+            <img className='w-7 md:w-11' src={avatar}/>
+            <hi className='font-semibold px-2'>Ama</hi>
+            <ChevronDown fill='black' />
+          </div>
+
           </div>
         </header>
 
@@ -98,15 +104,11 @@ const Layout = () => {
             <h1 className="bg-pink-600 w-6 h-6 flex justify-center items-center rounded-md"><ArrowLeft color='white' fill="none" /></h1>
             <h1 className='font-semibold text-sm'>Back</h1>
           </div>
-          <div className='flex justify-center items-center'>
-            <img className='w-7 md:w-11' src={avatar}/>
-            <hi className='font-semibold px-2'>Ama</hi>
-            <ChevronDown fill='black' />
-          </div>
+       
         </nav>
 
         <Routes>
-          <Route path="/" element={<Mainpage />} />
+          <Route path="/" element={<Mainpage2 />} />
           <Route path="/invoice2" element={<Invoice2 />} /> {/* Ensure InvoicePage component exists */}
           <Route path="/bot" element={<ChatWithBotpress />} /> Ensure InvoicePage component exists
         </Routes>
