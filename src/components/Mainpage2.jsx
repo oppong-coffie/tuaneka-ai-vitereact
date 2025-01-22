@@ -1,11 +1,24 @@
 import React, { useState } from 'react';
-import { Button, Textarea } from "@nextui-org/react";
+import { Button, Modal } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import { Divider } from 'antd';
 import Logo from '../images/Logo.png'
 import qr from '../images/qr.png'
 
 const Main = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
     const customers = [
         { id: 1, name: 'Potia Oppong', email: 'oppongcoffie27@gmail.com' },
         { id: 2, name: 'Stephen Oppong Coffie', email: 'oppongcoffie27@gmail.com' },
@@ -31,8 +44,57 @@ const Main = () => {
         navigate('/invoice2', { state: { customer: selectedCustomer } });
     };
 
+    const invoices = [
+        { id: '101', date: '2025-01-15', amount: '250.00 USD' },
+        { id: '102', date: '2025-01-10', amount: '125.00 USD' },
+        { id: '103', date: '2025-01-05', amount: '300.00 USD' }
+    ];
+
     return (
         <>
+   {/* Previous Invioce Modal */}
+   <Modal
+      title="Previous Invoices"
+      open={isModalOpen}
+      onOk={handleOk}
+      onCancel={handleCancel}
+      footer={null} // Disable default footer to create a custom one
+      className="rounded-lg shadow-lg p-6"
+    >
+    
+        {/* Modal Body */}
+        <div className="overflow-x-auto">
+          <table className="min-w-full text-left border-collapse">
+            <thead>
+              <tr className="bg-gray-50">
+                <th className="py-2 px-4 text-sm font-bold text-pink-600 border-b">Invoice #</th>
+                <th className="py-2 px-4 text-sm font-bold text-pink-600 border-b">Date</th>
+                <th className="py-2 px-4 text-sm font-bold text-pink-600 border-b">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {invoices.map((invoice) => (
+                <tr key={invoice.id} className="hover:bg-gray-100">
+                  <td className="py-2 px-4 text-sm text-gray-700 border-b">{invoice.id}</td>
+                  <td className="py-2 px-4 text-sm text-gray-700 border-b">{invoice.date}</td>
+                  <td className="py-2 px-4 text-sm text-gray-700 border-b">{invoice.amount}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Modal Footer */}
+        <div className="flex justify-end mt-4">
+          <button
+            onClick={handleCancel}
+            className="px-6 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+          >
+            Close
+          </button>
+        </div>
+    </Modal>
+
             <main className='mt-4 md:mt-0 ml-9 mr-9 grid grid-cols-5'>
                 <div className="mt-1 col-span-3">
                     <h6 className='text-left'>Hello Alfy, Welcome to Tuaneka. How can we help you today?</h6>
@@ -40,7 +102,7 @@ const Main = () => {
                         <Link to='/chat'>
                             <button className='text-white bg-pink-600 rounded-xl text-sm p-1 px-5'>I need a new invoice</button>
                         </Link>
-                        <button className='text-white bg-pink-600 rounded-xl text-sm p-1 px-5'>I want to list my previous invoices</button>
+                        <button onClick={showModal} className='text-white bg-pink-600 rounded-xl text-sm p-1 px-5'>I want to list my previous invoices</button>
                     </div>
                 </div>
 
@@ -49,7 +111,8 @@ const Main = () => {
                         <h6 className='text-left text-sm'>This is a preview of your last invoice</h6>
                         <h6 className='text-right text-sm'><span className='text-pink-600'>Click here to resend</span>  the last invoice</h6>
                     </div>
-                    <div className="border-2 p-2">
+                    <div className="border-2 p-2 blur-sm">
+                        <div className="bg-black h-[100%] w-[100%]"></div>
                         <div className="flex justify-between mb-5">
                             <div className=""><img src={Logo} alt="" /></div>
                             <div className="text-right">

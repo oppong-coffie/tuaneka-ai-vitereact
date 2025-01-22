@@ -49,6 +49,7 @@ const Chatnow = () => {
             setStep(step + 1);
         }
     };
+    const subtotal = items.reduce((acc, item) => acc + (item.qty * item.price), 0);
 
     return (
         <main className='mt-4 md:mt-0 ml-9 mr-9 grid grid-cols-5'>
@@ -161,16 +162,16 @@ const Chatnow = () => {
                         </table>
                         <div className="text-xs font-semibold">
                             <hr className='bg-black p-[1px] m-1 mb-3' />
-                            <h1 className='text-right'>Sub Total: 3,172,00 USD</h1>
+                            <h1 className='text-right'>Sub Total: {subtotal} USD</h1>
                             <div className="flex justify-end">
                                 <hr className='bg-black p-[1px] w-56' />
                             </div>
-                            <h1 className='text-right'>Taxable Amount: 3,172,00 USD</h1>
+                            <h1 className='text-right'>Taxable Amount: {subtotal} USD</h1>
                             <h1 className='text-right pt-3'>VAT: USD</h1>
                             <div className="flex justify-end">
                                 <hr className='bg-black p-[1px] w-56' />
                             </div>               
-                            <h1 className='text-right'>Amount Due: 3,172,00 USD</h1>
+                            <h1 className='text-right'>Amount Due: {subtotal} USD</h1>
                         </div>
                         <div className="flex justify-between mt-5 text-xs">
                             <div className="text-left">
