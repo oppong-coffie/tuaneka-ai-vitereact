@@ -70,6 +70,7 @@ const Main = () => {
                 <th className="py-2 px-4 text-sm font-bold text-pink-600 border-b">Invoice #</th>
                 <th className="py-2 px-4 text-sm font-bold text-pink-600 border-b">Date</th>
                 <th className="py-2 px-4 text-sm font-bold text-pink-600 border-b">Amount</th>
+                <th className="py-2 px-4 text-sm font-bold text-pink-600 border-b">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -78,6 +79,8 @@ const Main = () => {
                   <td className="py-2 px-4 text-sm text-gray-700 border-b">{invoice.id}</td>
                   <td className="py-2 px-4 text-sm text-gray-700 border-b">{invoice.date}</td>
                   <td className="py-2 px-4 text-sm text-gray-700 border-b">{invoice.amount}</td>
+                  <Button type='primary'><td className="py-2 px-4 text-sm text-white border-b">Resend</td></Button>
+                  
                 </tr>
               ))}
             </tbody>
@@ -99,13 +102,15 @@ const Main = () => {
                 <div className="mt-1 col-span-3">
                     <h6 className='text-left'>Hello Alfy, Welcome to Tuaneka. How can we help you today?</h6>
                     <div className="flex gap-2 mt-7">
-                        <Link to='/chat'>
+                        <Link to='/chatbot'>
                             <button className='text-white bg-pink-600 rounded-xl text-sm p-1 px-5'>I need a new invoice</button>
                         </Link>
                         <button onClick={showModal} className='text-white bg-pink-600 rounded-xl text-sm p-1 px-5'>I want to list my previous invoices</button>
                     </div>
                 </div>
+                
 
+{/* PREVIEW */}
                 <div className="col-span-2">
                     <div className="flex justify-between">
                         <h6 className='text-left text-sm'>This is a preview of your last invoice</h6>

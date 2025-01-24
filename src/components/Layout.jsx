@@ -11,6 +11,7 @@ import Invoice2 from './Invoice2.jsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ChatWithBotpress from './ChatWithBotpress.jsx'
 import Chatnow from './Chatnow.jsx'
+import Chatbotnow from './Chatbotnow.jsx'
 
 
 
@@ -74,7 +75,7 @@ const Layout = () => {
   return (
     <>
       <div className="">
-        <header className="flex justify-between items-center mb-5 md:mb-0 md:ml-5 md:mr-5">
+        <header className="flex justify-between items-center mb-5 md:mb-0 md:ml-8 md:mr-5">
           <div className="flex items-center gap-2 md:gap-6">
             <img className="w-2/4" src={logo}/>
             <img className="w-4 md:w-5" src={frame272}/>
@@ -100,7 +101,7 @@ const Layout = () => {
         </header>
 
         {/*   START:: NAV-BAR */}
-        <nav className='flex justify-between ml-9 mr-10'>
+        <nav className='flex justify-between ml-9 mr-10 mb-3'>
           <div className='flex gap-3 items-center'>
             <h1 className="bg-pink-600 w-6 h-6 flex justify-center items-center rounded-md"><ArrowLeft color='white' fill="none" /></h1>
             <h1 className='font-semibold text-sm'>Back</h1>
@@ -113,6 +114,7 @@ const Layout = () => {
           <Route path="/invoice2" element={<Invoice2 />} /> {/* Ensure InvoicePage component exists */}
           <Route path="/bot" element={<ChatWithBotpress />} /> 
           <Route path="/chat" element={<Chatnow />} /> 
+          <Route path="/chatbot" element={<Chatbotnow />} /> 
         </Routes>
 
       </div>

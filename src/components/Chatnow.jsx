@@ -57,7 +57,8 @@ const Chatnow = () => {
             <div className="mt-1 col-span-3">
                 <h6 className='text-left'>Hello Alfy, Welcome to Tuaneka. How can we help you today?</h6>
                 <div className="flex gap-2 mt-7">
-                    <button className='text-white bg-pink-600 rounded-xl text-sm p-1 px-5'>I need a new invoice</button>                    </div>
+                    <button className='text-white bg-pink-600 rounded-xl text-sm p-1 px-5'>I need a new invoice</button>
+                                        </div>
 
                 <div className="chat-window p-4 rounded-lg">
                     {chatHistory.map((entry, index) => (
